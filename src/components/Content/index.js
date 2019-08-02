@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "../Home";
 import Converter from "../Calculator";
-import Table from "../Table";
+import CurrencyTable from "../Table";
 
 export default class Content extends Component {
   render() {
@@ -10,7 +10,7 @@ export default class Content extends Component {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/converter" component={Converter} />
-        <Route path="/currency-table" component={Table} />
+        <Route path="/currency-table" component={CurrencyTable} />
       </Switch>
     );
   }
