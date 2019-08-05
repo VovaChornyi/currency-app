@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
 
 export default class CurrencyTable extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   static getTableBody(items) {
     return <tbody>{items.map(CurrencyTable.getTableRow)}</tbody>;
   }

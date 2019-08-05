@@ -5,13 +5,16 @@ import jsonp from "jsonp";
 
 export default class CurrencyTableTab extends Component {
   state = {
-    date: Date(),
     currencies: []
   };
 
   componentDidMount() {
+    this.fetchData(DatePicker.formatDate(Date()));
+  }
+
+  fetchData = date => {
     jsonp(
-      "http://hnbex.eu/api/v1/rates/daily/?date=2019-08-02",
+      "http://hnbex.eu/api/v1/rates/daily/?date=" + date,
       null,
       (err, data) => {
         this.setState({ currencies: data });
@@ -20,12 +23,12 @@ export default class CurrencyTableTab extends Component {
         }
       }
     );
-  }
+  };
 
   render() {
     return (
       <div>
-        <DatePicker />
+        <DatePicker submitCallback={this.fetchData} />
         <CurrencyTable data={this.state.currencies} />
       </div>
     );
